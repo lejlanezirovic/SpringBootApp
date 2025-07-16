@@ -17,15 +17,15 @@ public class TaskController {
         return taskService.getTasks();
     }
     @PostMapping
-    public void AddTask(@RequestBody TaskRequestDto TRdto){
-        taskService.AddTask(TRdto);
+    public void addTask(@RequestBody TaskRequestDto payload){
+        taskService.addTask(payload);
     }
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable String id){
         taskService.deleteTask(id);
     }
     @PutMapping("/{id}")
-    public void UpdateTask(@RequestBody TaskRequestDto TRdto, @PathVariable String id){
-        taskService.UpdateTask(TRdto, id);
+    public void updateTask(@RequestBody TaskRequestDto payload, @PathVariable String id){
+        taskService.updateTask(payload, id);
     }
 }

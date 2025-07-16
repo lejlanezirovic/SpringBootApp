@@ -14,8 +14,8 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
-    public void AddTask(TaskRequestDto trDTO){
-        TaskEntity t= TaskMapper.toEntity(trDTO);
+    public void addTask(TaskRequestDto payload){
+        TaskEntity t= TaskMapper.toEntity(payload);
         taskRepository.save(t);
     }
     public List<TaskResponseDto> getTasks(){
@@ -33,12 +33,12 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
-    public void UpdateTask(TaskRequestDto trDTO, String id){
+    public void updateTask(TaskRequestDto payload, String id){
         TaskEntity task=taskRepository.findById(id)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Task nije pronadjen"));
-        task.setTitle(trDTO.getTitle());
-        task.setDescription(trDTO.getDescription());
-        task.setStatus(trDTO.getStatus());
+        task.setTitle(payload.getTitle());
+        task.setDescription(payload.getDescription());
+        task.setStatus(payload.getStatus());
         taskRepository.save(task);
     }
 }
