@@ -1,6 +1,7 @@
 package SpringBootApp.App;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -9,31 +10,24 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
-import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "tasks")
+@Table(name="projects")
 @EntityListeners(AuditingEntityListener.class)
 @Data
-public class TaskEntity {
-
+public class ProjectEntity {
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid",
-                      strategy = "uuid")
+    @GenericGenerator(name="uuid", strategy = "uuid")
     private String id;
     private String title;
-    private String description;
     @CreatedDate
     private Instant createdAt;
     @LastModifiedDate
     private Instant updatedAt;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
-
-    @ManyToOne
-    @JoinColumn(name="projectEntity_id")
-    @JsonBackReference
-    private ProjectEntity projectEntity;
+    @OneToMany(mappedBy = "projectEntity", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<TaskEntity> tasks;
 }
