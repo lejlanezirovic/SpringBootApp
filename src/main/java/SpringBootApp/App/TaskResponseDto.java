@@ -13,6 +13,7 @@ public class TaskResponseDto {
     private String description;
     private Status status;
     private Instant updatedAt;
-
+    private String firstName;
+    private String lastName;
 
 }

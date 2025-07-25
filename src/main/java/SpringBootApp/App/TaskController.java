@@ -28,4 +28,8 @@ public class TaskController {
     public void updateTask(@RequestBody TaskRequestDto payload, @PathVariable String id){
         taskService.updateTask(payload, id);
     }
+    @PostMapping("/assign-task-to-user")
+    public void assignTaskToUser(@RequestBody TaskUserDto payload){
+        taskService.assignTaskToUser(payload);
+    }
 }
