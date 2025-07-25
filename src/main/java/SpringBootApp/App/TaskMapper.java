@@ -17,6 +17,10 @@ public class TaskMapper {
         response.setStatus(task.getStatus());
         response.setDescription(task.getDescription());
         response.setUpdatedAt(task.getUpdatedAt());
+       if(task.getUser()!=null){
+           response.setFirstName(task.getUser().getFirstName());
+           response.setLastName(task.getUser().getLastName());
+       }
         return response;
     }
 }

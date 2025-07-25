@@ -1,6 +1,7 @@
 package SpringBootApp.App;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -10,6 +11,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,4 +32,8 @@ public class ProjectEntity {
     @OneToMany(mappedBy = "projectEntity", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<TaskEntity> tasks;
+
+    @ManyToMany(mappedBy = "projects")
+    @JsonBackReference
+    private List<UserEntity> participants=new ArrayList<>();
 }

@@ -36,4 +36,10 @@ public class TaskEntity {
     @JoinColumn(name="projectEntity_id")
     @JsonBackReference
     private ProjectEntity projectEntity;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    @JsonBackReference
+    private UserEntity user;
+    //mora biti @JsonBackReference, sprijecava serijalizaciju objekta
 }
