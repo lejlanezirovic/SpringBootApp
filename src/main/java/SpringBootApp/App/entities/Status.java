@@ -1,4 +1,4 @@
-package SpringBootApp.App;
+package SpringBootApp.App.entities;
 
 public enum Status {
     TO_DO,

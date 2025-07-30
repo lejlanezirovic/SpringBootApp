@@ -1,10 +1,10 @@
-package SpringBootApp.App;
+package SpringBootApp.App.payloads;
 
 
+import SpringBootApp.App.entities.Status;
 import lombok.Data;
 
 import java.time.Instant;
-import java.time.LocalDate;
 
 @Data
 public class TaskResponseDto {

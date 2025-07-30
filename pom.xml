@@ -28,9 +28,9 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<sparktech.version>1.0.9</sparktech.version>
 	</properties>
 	<dependencies>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -48,6 +48,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sparktechcode</groupId>
+			<artifactId>spring-crud</artifactId>
+			<version>${sparktech.version}</version>
+
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,11 +66,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
-		</dependency>
+
 	</dependencies>
 
 	<build>

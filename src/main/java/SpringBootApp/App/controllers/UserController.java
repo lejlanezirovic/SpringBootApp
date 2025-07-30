@@ -1,5 +1,12 @@
-package SpringBootApp.App;
+package SpringBootApp.App.controllers;
 
+import SpringBootApp.App.entities.ProjectEntity;
+import SpringBootApp.App.entities.UserEntity;
+import SpringBootApp.App.payloads.ProjectRequestDto;
+import SpringBootApp.App.payloads.UserProjectRequestDto;
+import SpringBootApp.App.payloads.UserRequestDto;
+import SpringBootApp.App.services.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,9 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@RequiredArgsConstructor
 public class UserController {
-    @Autowired
-    private UserService userService;
+
+    private final UserService userService;
 
     @GetMapping
     public List<UserEntity> getAllUsers(){

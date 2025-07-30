@@ -1,6 +1,14 @@
-package SpringBootApp.App;
+package SpringBootApp.App.services;
 
+import SpringBootApp.App.payloads.ProjectRequestDto;
+import SpringBootApp.App.payloads.UserProjectRequestDto;
+import SpringBootApp.App.payloads.UserRequestDto;
+import SpringBootApp.App.entities.ProjectEntity;
+import SpringBootApp.App.entities.UserEntity;
+import SpringBootApp.App.repository.ProjectRepository;
+import SpringBootApp.App.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,11 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private ProjectRepository projectRepository;
+    //@Autowired
+    private final UserRepository userRepository;
+    private final ProjectRepository projectRepository;
 
     public List<UserEntity> getAllUsers(){
        List<UserEntity> users=new ArrayList<>();

@@ -1,10 +1,11 @@
-package SpringBootApp.App;
+package SpringBootApp.App.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.sparktechcode.springjpasearch.entities.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -18,7 +19,11 @@ import java.util.List;
 @Table(name="projects")
 @EntityListeners(AuditingEntityListener.class)
 @Data
-public class ProjectEntity {
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(onlyExplicitlyIncluded = true, callSuper = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+public class ProjectEntity implements BaseEntity<String> {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid", strategy = "uuid")

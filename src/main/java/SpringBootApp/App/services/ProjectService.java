@@ -1,6 +1,13 @@
-package SpringBootApp.App;
+package SpringBootApp.App.services;
 
+import SpringBootApp.App.payloads.ProjectRequestDto;
+import SpringBootApp.App.payloads.TaskRequestDto;
+import SpringBootApp.App.entities.ProjectEntity;
+import SpringBootApp.App.entities.TaskEntity;
+import SpringBootApp.App.repository.ProjectRepository;
+import SpringBootApp.App.repository.TaskRepository;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,12 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProjectService {
-    @Autowired
-    private ProjectRepository projectRepository;
 
-    @Autowired
-    private TaskRepository taskRepository;
+    private final ProjectRepository projectRepository;
+    private final TaskRepository taskRepository;
     //omoguciti dodavanje novih projekata, brisanje projekata, getAllProjects, dodaj Task za projekat
 
     //getallProjects

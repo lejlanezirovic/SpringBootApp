@@ -1,5 +1,10 @@
-package SpringBootApp.App;
+package SpringBootApp.App.controllers;
 
+import SpringBootApp.App.payloads.TaskRequestDto;
+import SpringBootApp.App.payloads.TaskResponseDto;
+import SpringBootApp.App.services.TaskService;
+import SpringBootApp.App.payloads.TaskUserDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,10 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tasks")
+@RequiredArgsConstructor
 public class TaskController {
 
-    @Autowired
-    private TaskService taskService;
+    private final TaskService taskService;
 
     @GetMapping
     public List<TaskResponseDto> getALLTasks(){

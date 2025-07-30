@@ -1,4 +1,6 @@
-package SpringBootApp.App;
+package SpringBootApp.App.payloads;
+
+import SpringBootApp.App.entities.TaskEntity;
 
 public class TaskMapper {
 
@@ -10,7 +12,7 @@ public class TaskMapper {
         return task;
     }
 
-    public static  TaskResponseDto toDto(TaskEntity task){
+    public static TaskResponseDto toDto(TaskEntity task){
         TaskResponseDto response=new TaskResponseDto();
         response.setId(task.getId());
         response.setTitle(task.getTitle());

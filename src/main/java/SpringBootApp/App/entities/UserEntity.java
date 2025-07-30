@@ -1,16 +1,21 @@
-package SpringBootApp.App;
+package SpringBootApp.App.entities;
 
+import com.sparktechcode.springjpasearch.entities.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.*;
 
+import org.hibernate.annotations.GenericGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="users")
 @Data
-public class UserEntity {
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(onlyExplicitlyIncluded = true, callSuper = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+public class UserEntity implements BaseEntity<String> {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -29,4 +34,5 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "project_id")
     )
     private List<ProjectEntity> projects=new ArrayList<>();
+
 }

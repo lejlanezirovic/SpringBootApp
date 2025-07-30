@@ -1,5 +1,10 @@
-package SpringBootApp.App;
+package SpringBootApp.App.controllers;
 
+import SpringBootApp.App.entities.ProjectEntity;
+import SpringBootApp.App.payloads.ProjectRequestDto;
+import SpringBootApp.App.services.ProjectService;
+import SpringBootApp.App.payloads.TaskRequestDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,10 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/projects")
+@RequiredArgsConstructor
 public class ProjectController {
 
-    @Autowired
-    private ProjectService projectService;
+    private final ProjectService projectService;
 
     @GetMapping
     public List<ProjectEntity> getAllProjects(){

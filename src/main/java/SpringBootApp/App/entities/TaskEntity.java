@@ -1,21 +1,25 @@
-package SpringBootApp.App;
+package SpringBootApp.App.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.sparktechcode.springjpasearch.entities.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "tasks")
 @EntityListeners(AuditingEntityListener.class)
 @Data
-public class TaskEntity {
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(onlyExplicitlyIncluded = true, callSuper = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+public class TaskEntity implements BaseEntity<String> {
 
     @Id
     @GeneratedValue(generator = "uuid")

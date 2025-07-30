@@ -1,6 +1,15 @@
-package SpringBootApp.App;
+package SpringBootApp.App.services;
 
+import SpringBootApp.App.payloads.TaskMapper;
+import SpringBootApp.App.payloads.TaskRequestDto;
+import SpringBootApp.App.payloads.TaskResponseDto;
+import SpringBootApp.App.payloads.TaskUserDto;
+import SpringBootApp.App.entities.TaskEntity;
+import SpringBootApp.App.entities.UserEntity;
+import SpringBootApp.App.repository.TaskRepository;
+import SpringBootApp.App.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -10,11 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TaskService {
-    @Autowired
-    private TaskRepository taskRepository;
-    @Autowired
-    private UserRepository userRepository;
+
+    private  final TaskRepository taskRepository;
+    private final UserRepository userRepository;
 
     public void addTask(TaskRequestDto payload){
         TaskEntity t= TaskMapper.toEntity(payload);
