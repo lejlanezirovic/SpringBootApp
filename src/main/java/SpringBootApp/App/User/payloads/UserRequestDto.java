@@ -1,8 +1,11 @@
-package SpringBootApp.App;
+package SpringBootApp.App.User.payloads;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserRequestDto {
 
     private String firstName;

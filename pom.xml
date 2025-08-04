@@ -28,9 +28,12 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<sparktech.version>1.0.3</sparktech.version>
+		<mapstruct.version>1.6.3</mapstruct.version>
+		<compiler.version>3.11.0</compiler.version>
+		<lombok-mapstruct.version>0.2.0</lombok-mapstruct.version>
 	</properties>
 	<dependencies>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -39,15 +42,31 @@
 		</dependency>
 
 		<dependency>
-		<groupId>org.postgresql</groupId>
-		<artifactId>postgresql</artifactId>
-		<version>42.7.3</version>
-	</dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.3</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sparktechcode</groupId>
+			<artifactId>spring-crud</artifactId>
+			<version>${sparktech.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sparktechcode</groupId>
+			<artifactId>spring-jpa-search</artifactId>
+			<version>${sparktech.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,11 +79,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
-		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -72,6 +87,32 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok-mapstruct-binding</artifactId>
+							<version>${lombok-mapstruct.version}</version>
+						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${mapstruct.version}</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
