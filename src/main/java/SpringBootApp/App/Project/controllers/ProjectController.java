@@ -44,11 +44,6 @@ public class ProjectController implements
         };
     }
 
-//    @PostMapping("/add-task/{id}")
-//    public void addTaskForProject(@PathVariable String id, @RequestBody TaskRequestDto taskDto){
-//        service.addTaskForProject(id, taskDto);
-//    }
-
     @DeleteMapping("/{projectId}/remove-task/{taskId}")
     public void deleteTaskFromProject(@PathVariable String projectId, @PathVariable String taskId){
         service.deleteTaskFromProject(projectId,taskId);

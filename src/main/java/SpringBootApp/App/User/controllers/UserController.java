@@ -21,25 +21,9 @@ public class UserController implements
     private final UserService service;
     private final UserMapper mapper;
 
+
     @PostMapping("/{id}/add-project")
     public void addExistingProjectToUser(@RequestBody UserProjectRequestDto userProjectDto, @PathVariable String id){
         service.addExistingProjectToUser(userProjectDto, id);
     }
-
-//    @PostMapping("/create-new-project/{id}")
-//     public void createNewProjectForUser(@PathVariable String id, @RequestBody ProjectRequestDto projectDto){
-//        service.createNewProjectForUser(id,projectDto);
-//    }
-//    @GetMapping("/my-projects/{id}")
-//    public List<ProjectEntity> getAllProjectsFromUserById(@PathVariable String id){
-//        return service.getAllProjectsFromUserById(id);
-//    }
-//    @DeleteMapping("/{userId}/delete-project/{projectId}")
-//    public void deleteProjectForUserById(@PathVariable String userId,@PathVariable String projectId){
-//        service.deleteProjectForUserById(userId,projectId);
-//    }
-//    @PutMapping("/{userId}/upd-project/{projectId}")
-//    public void updateProjectForUser(@PathVariable String userId, @PathVariable String projectId, @RequestBody ProjectRequestDto projectDto){
-//        service.updateProjectForUser(userId,projectId,projectDto);
-//    }
 }
